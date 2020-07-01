@@ -128,40 +128,41 @@ function keyReleased(){
 // MOUSE CLICK CONTROLS
 function mouseClicked() {
   // DOWN
-  if(mouseX>500 && mouseX<550 && mouseY>50 && mouseY<100 && bot.Y<350){
-    // bot.Y = bot.Y + 100;
+  if(mouseX>500 && mouseX<550 && mouseY>50 && mouseY<100){
+    down();
   }
   // UP
-  if(mouseX>500 && mouseX<550 && mouseY>0 && mouseY<50 && bot.Y>50){
+  if(mouseX>500 && mouseX<550 && mouseY>0 && mouseY<50){
     bot.Y = bot.Y - 100;
+    up();
   }
   // LEFT
-  if(mouseX>450 && mouseX<500 && mouseY>50 && mouseY<100 && bot.X>50){
-    bot.X = bot.X - 100;
+  if(mouseX>450 && mouseX<500 && mouseY>50 && mouseY<100){
+    left();
   }
   // RIGHT
-  if(mouseX>550 && mouseX<600 && mouseY>50 && mouseY<100 && bot.X<350){
-    bot.X = bot.X + 100;
+  if(mouseX>550 && mouseX<600 && mouseY>50 && mouseY<100){
+    right();
   }
 }
 
 // ADD a wrapper function that will allow this script to run on non-desktop touchscreen devices only.
 function touchStarted() {
   // DOWN
-  if(touches[0].x>500 && touches[0].x<550 && touches[0].y>50 && touches[0].y<100 && bot.Y<350){
-    bot.Y = bot.Y + 100;
+  if(touches[0].x>500 && touches[0].x<550 && touches[0].y>50 && touches[0].y<100){
+    down();
   }
     // UP
-  if(touches[0].x>500 && touches[0].x<550 && touches[0].y>0 && touches[0].y<50 && bot.Y>50){
-    bot.Y = bot.Y - 100;
+  if(touches[0].x>500 && touches[0].x<550 && touches[0].y>0 && touches[0].y<50){
+    up();
   }
   // LEFT
-  if(touches[0].x>450 && touches[0].x<500 && touches[0].y>50 && touches[0].y<100 && bot.X>50){
-    bot.X = bot.X - 100;
+  if(touches[0].x>450 && touches[0].x<500 && touches[0].y>50 && touches[0].y<100){
+    left();
   }
   // RIGHT
-  if(touches[0].x>550 && touches[0].x<600 && touches[0].y>50 && touches[0].y<100 && bot.X<350){
-    bot.X = bot.X + 100;
+  if(touches[0].x>550 && touches[0].x<600 && touches[0].y>50 && touches[0].y<100){
+    right();
   }
 // touch is firing the event twice. return false keeps the firing once.
 return false;
@@ -172,31 +173,18 @@ return false;
 function up() {
     moves.record.push(moves.up)
     moves.displayRecord.push("UP")
-    console.log(moves.record)
-    // moves.Y.push(-100)
-    // moves.X.push(0)
 }
 function down() {
     moves.record.push(moves.down)
     moves.displayRecord.push("DOWN")
-
-    console.log(moves.record)
-    // moves.Y.push(100);
-    // moves.X.push(0);
 }
 function left() {
     moves.record.push(moves.left)
     moves.displayRecord.push("LEFT")
-    console.log(moves.record)
-    // moves.Y.push(0)
-    // moves.X.push(-100)
 }
 function right() {
     moves.record.push(moves.right)
     moves.displayRecord.push("RIGHT")
-    console.log(moves.record)
-    // moves.Y.push(0)
-    // moves.X.push(100)
 }
 
 
