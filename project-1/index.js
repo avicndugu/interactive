@@ -2,6 +2,7 @@ var bot = {
     X:50,
     Y:50
 }
+
 let value=0;
 var y=[];
 var tileX=[0,100,200,300];
@@ -9,6 +10,14 @@ var tileY=[0,100,200,300];
 var tileWidth=100;
 var tileLength =100;
 
+var moves = {
+    up:[0,-100],
+    down:[0,100],
+    left:[-100,0],
+    right:[100,0],
+    record:[],
+    displayRecord:[],
+}
 function setup() {
   createCanvas(600, 600);
   background(220);
@@ -73,17 +82,45 @@ function draw() {
 
 // ARROW BUTTONS CONTROLS
 function keyReleased(){
-    if (keyCode===40 && bot.Y<350){
-        bot.Y = bot.Y + 100; //down
+    // // DOWN
+    // if (keyCode===40 && bot.Y<350){
+    //     // bot.Y = bot.Y + 100;
+    //     down();
+    // }
+    // // UP
+    // if (keyCode===38 && bot.Y>50){
+    //     // bot.Y = bot.Y - 100;
+    //     up();
+    // }
+    // // LEFT
+    // if (keyCode===37 && bot.X>50){
+    //     // bot.X = bot.X - 100;
+    //     left();
+    // }
+    // // RIGHT
+    // if (keyCode===39 && bot.X<350){
+    //     // bot.X = bot.X + 100;
+    //     right();
+    // }
+        // DOWN
+    if (keyCode===40){
+        // bot.Y = bot.Y + 100;
+        down();
     }
-    if (keyCode===38 && bot.Y>50){
-        bot.Y = bot.Y - 100; //up
+    // UP
+    if (keyCode===38){
+        // bot.Y = bot.Y - 100;
+        up();
     }
-    if (keyCode===37 && bot.X>50){
-        bot.X = bot.X - 100; //left
+    // LEFT
+    if (keyCode===37){
+        // bot.X = bot.X - 100;
+        left();
     }
-    if (keyCode===39 && bot.X<350){
-        bot.X = bot.X + 100; //right
+    // RIGHT
+    if (keyCode===39){
+        // bot.X = bot.X + 100;
+        right();
     }
 }
 
@@ -91,7 +128,7 @@ function keyReleased(){
 function mouseClicked() {
   // DOWN
   if(mouseX>500 && mouseX<550 && mouseY>50 && mouseY<100 && bot.Y<350){
-    bot.Y = bot.Y + 100;
+    // bot.Y = bot.Y + 100;
   }
   // UP
   if(mouseX>500 && mouseX<550 && mouseY>0 && mouseY<50 && bot.Y>50){
@@ -128,6 +165,54 @@ function touchStarted() {
 // touch is firing the event twice. return false keeps the firing once.
 return false;
 }
+
+
+
+function up() {
+    moves.record.push(moves.up)
+    moves.displayRecord.push("UP")
+    console.log(moves.record)
+    // moves.Y.push(-100)
+    // moves.X.push(0)
+}
+function down() {
+    moves.record.push(moves.down)
+    moves.displayRecord.push("DOWN")
+
+    console.log(moves.record)
+    // moves.Y.push(100);
+    // moves.X.push(0);
+}
+function left() {
+    moves.record.push(moves.left)
+    moves.displayRecord.push("LEFT")
+    console.log(moves.record)
+    // moves.Y.push(0)
+    // moves.X.push(-100)
+}
+function right() {
+    moves.record.push(moves.right)
+    moves.displayRecord.push("RIGHT")
+    console.log(moves.record)
+    // moves.Y.push(0)
+    // moves.X.push(100)
+}
+
+function playSteps(){
+    for(let i=0; i< moves.record.length; i++){
+        console.log(bot.X, bot.Y);
+        bot.X=bot.X + moves.record[i][0];
+        bot.Y=bot.Y + moves.record[i][1];
+        console.log(bot.X, bot.Y);
+    }
+    console.log(moves.record)
+    console.log(moves.displayRecord);
+
+}
+
+document.querySelector(".showResult").addEventListener("click", function(){
+    playSteps();
+});
 
 
 // wget
