@@ -102,27 +102,27 @@ function mouseClicked() {
   }
 }
 
-// ADD a wrapper function that will allow this script to run on non-desktop touchscreen devices only.
-function touchStarted() {
-  // DOWN
-  if(touches[0].x>500 && touches[0].x<550 && touches[0].y>50 && touches[0].y<100){
-    down();
-  }
-    // UP
-  if(touches[0].x>500 && touches[0].x<550 && touches[0].y>0 && touches[0].y<50){
-    up();
-  }
-  // LEFT
-  if(touches[0].x>450 && touches[0].x<500 && touches[0].y>50 && touches[0].y<100){
-    left();
-  }
-  // RIGHT
-  if(touches[0].x>550 && touches[0].x<600 && touches[0].y>50 && touches[0].y<100){
-    right();
-  }
-// touch is firing the event twice. return false keeps the firing once.
-return false;
-}
+// // ADD a wrapper function that will allow this script to run on non-desktop touchscreen devices only.
+// function touchStarted() {
+//   // DOWN
+//   if(touches[0].x>500 && touches[0].x<550 && touches[0].y>50 && touches[0].y<100){
+//     down();
+//   }
+//     // UP
+//   if(touches[0].x>500 && touches[0].x<550 && touches[0].y>0 && touches[0].y<50){
+//     up();
+//   }
+//   // LEFT
+//   if(touches[0].x>450 && touches[0].x<500 && touches[0].y>50 && touches[0].y<100){
+//     left();
+//   }
+//   // RIGHT
+//   if(touches[0].x>550 && touches[0].x<600 && touches[0].y>50 && touches[0].y<100){
+//     right();
+//   }
+// // touch is firing the event twice. return false keeps the firing once.
+// return false;
+// }
 
 
 
