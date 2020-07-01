@@ -18,9 +18,15 @@ var moves = {
     record:[],
     displayRecord:[],
 }
+
+let button;
 function setup() {
   createCanvas(600, 600);
   background(220);
+  button = createButton("GO");
+  button.position(550, 200);
+  button.mousePressed(playSteps);
+
 }
 
 function draw() {
@@ -46,81 +52,31 @@ function draw() {
   ellipse(bot.X,bot.Y,50,50);
     // frameRate(0.1)
 
-  // if(keyIsDown(DOWN_ARROW)){
-  //   // bot.Y = bot.Y + 100;
-  // }else{
-  //   // bot.Y = bot.Y;
-  // }
-  // if(keyIsDown(UP_ARROW)){
-  //   // bot.Y = 50;
-  // }
-  // if(keyIsDown(LEFT_ARROW)){
-  //   bot.X = 50;
-  // }
-  // if(keyIsDown(RIGHT_ARROW)){
-  //   bot.X = 150;
-  // }
   rect(500,50,tileWidth/2, tileLength/2);
   rect(500,0,tileWidth/2, tileLength/2);
   rect(450,50,tileWidth/2, tileLength/2);
   rect(550, 50,tileWidth/2, tileLength/2);
 
-// TOUCH SCREEN CONTROLS
-  // console.log(touches);
-  // console.log(touches[0])
-//   0:
-// id: 0
-// winX: 480.71575927734375
-// winY: 100.06315612792969
-// x: 472.71575927734375
-// y: 92.06315612792969
-
-// let display = touches.length + ' touches';
-//   text(display, 5, 10);
-text(moves.displayRecord, 450, 300);
+  text(moves.displayRecord, 450, 300);
 }
 
 
 // ARROW BUTTONS CONTROLS
 function keyReleased(){
-    // // DOWN
-    // if (keyCode===40 && bot.Y<350){
-    //     // bot.Y = bot.Y + 100;
-    //     down();
-    // }
-    // // UP
-    // if (keyCode===38 && bot.Y>50){
-    //     // bot.Y = bot.Y - 100;
-    //     up();
-    // }
-    // // LEFT
-    // if (keyCode===37 && bot.X>50){
-    //     // bot.X = bot.X - 100;
-    //     left();
-    // }
-    // // RIGHT
-    // if (keyCode===39 && bot.X<350){
-    //     // bot.X = bot.X + 100;
-    //     right();
-    // }
         // DOWN
     if (keyCode===40){
-        // bot.Y = bot.Y + 100;
         down();
     }
     // UP
     if (keyCode===38){
-        // bot.Y = bot.Y - 100;
         up();
     }
     // LEFT
     if (keyCode===37){
-        // bot.X = bot.X - 100;
         left();
     }
     // RIGHT
     if (keyCode===39){
-        // bot.X = bot.X + 100;
         right();
     }
 }
