@@ -77,6 +77,7 @@ function draw() {
 
 // let display = touches.length + ' touches';
 //   text(display, 5, 10);
+text(moves.displayRecord, 450, 300);
 }
 
 
@@ -196,6 +197,11 @@ function right() {
     console.log(moves.record)
     // moves.Y.push(0)
     // moves.X.push(100)
+}
+
+
+function showSteps(){
+
 }
 
 function playSteps(){
