@@ -73,10 +73,8 @@ function draw() {
 
 // ARROW BUTTONS CONTROLS
 function keyReleased(){
-    console.log(keyCode);
     if (keyCode===40 && bot.Y<350){
         bot.Y = bot.Y + 100; //down
-        console.log(bot.Y) 
     }
     if (keyCode===38 && bot.Y>50){
         bot.Y = bot.Y - 100; //up
@@ -91,41 +89,43 @@ function keyReleased(){
 
 // MOUSE CLICK CONTROLS
 function mouseClicked() {
-  console.log(mouseX, mouseY)
   // DOWN
   if(mouseX>500 && mouseX<550 && mouseY>50 && mouseY<100 && bot.Y<350){
     bot.Y = bot.Y + 100;
-    // console.log("down");
   }
   // UP
   if(mouseX>500 && mouseX<550 && mouseY>0 && mouseY<50 && bot.Y>50){
     bot.Y = bot.Y - 100;
-    // console.log("up");
   }
   // LEFT
   if(mouseX>450 && mouseX<500 && mouseY>50 && mouseY<100 && bot.X>50){
     bot.X = bot.X - 100;
-    // console.log("left");
   }
+  // RIGHT
   if(mouseX>550 && mouseX<600 && mouseY>50 && mouseY<100 && bot.X<350){
-    bot.X = bot.X + 100; //right
-    // console.log("right");
+    bot.X = bot.X + 100;
   }
 }
 
+// ADD a wrapper function that will allow this script to run on non-desktop touchscreen devices only.
 function touchStarted() {
-// console.log(touches)
-// console.log(touches[0].x)
-// console.log(touches[0].y)
+  // DOWN
   if(touches[0].x>500 && touches[0].x<550 && touches[0].y>50 && touches[0].y<100 && bot.Y<350){
     bot.Y = bot.Y + 100;
-    console.log(touches[0].x)
-    console.log(touches[0].y)
   }
-
-
+    // UP
+  if(touches[0].x>500 && touches[0].x<550 && touches[0].y>0 && touches[0].y<50 && bot.Y>50){
+    bot.Y = bot.Y - 100;
+  }
+  // LEFT
+  if(touches[0].x>450 && touches[0].x<500 && touches[0].y>50 && touches[0].y<100 && bot.X>50){
+    bot.X = bot.X - 100;
+  }
+  // RIGHT
+  if(touches[0].x>550 && touches[0].x<600 && touches[0].y>50 && touches[0].y<100 && bot.X<350){
+    bot.X = bot.X + 100;
+  }
 // touch is firing the event twice. return false keeps the firing once.
-
 return false;
 }
 
